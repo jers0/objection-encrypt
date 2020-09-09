@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dialogtrail/objection-encrypt.git"
+    "url": "git+https://github.com/jers0/objection-encrypt.git"
   },
   "keywords": [
     "objection",
@@ -16,7 +16,7 @@
     "encrypt",
     "node"
   ],
-  "author": "Jers0",
+  "author": "Dialogtrail",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jers0/objection-encrypt/issues"

@@ -1,3 +1,5 @@
+> Original by [Dialogtrail](https://github.com/Dialogtrail/objection-encrypt.git), this is just a hotfix.
+
 # Automatic Field-specific encryption for Objection.js
 
 This plugin automatically adds encryption to selected fields of your Objection models. The encryption is based on Node.js built-in Crypto.
@@ -14,25 +16,25 @@ This plugin automatically adds encryption to selected fields of your Objection m
 
 ```js
 // import the plugin
-import ObjectionEncrypt from 'objection-encrypt';
+import ObjectionEncrypt from "objection-encrypt";
 
 // Initialize with options
 var Encrypt = ObjectionEncrypt({
-  fields: ['email', 'fullName'],
-  encryptionKey: process.env.ENCRYPTION_KEY
+  fields: ["email", "fullName"],
+  encryptionKey: process.env.ENCRYPTION_KEY,
 });
 
 // Add to Objection-model
 class User extends Encrypt(Model) {
-  static tableName = 'users';
+  static tableName = "users";
 
   static jsonSchema = {
-    type: 'object',
+    type: "object",
     properties: {
-      id: { type: 'integer' },
-      email: { type: 'string' },
-      fullName: { type: 'string' }
-    }
+      id: { type: "integer" },
+      email: { type: "string" },
+      fullName: { type: "string" },
+    },
   };
 }
 ```
@@ -47,16 +49,17 @@ These options can be added when instantiating the plugin. For example:
 
 ```js
 // import the plugin
-import ObjectionEncrypt from 'objection-encrypt';
+import ObjectionEncrypt from "objection-encrypt";
 
 // Initialize with options
 var Encrypt = ObjectionEncrypt({
-  fields: ['email', 'fullName'],
+  fields: ["email", "fullName"],
   encryptionKey: process.env.ENCRYPTION_KEY,
-  algorithm: 'aes-256-cbc',
-  ivLength: 16
+  algorithm: "aes-256-cbc",
+  ivLength: 16,
 });
 ```
+
 #### `encryptionKey` (required)
 
 The key used to encrypt and decrypt the values. Can not be easily switched out. Must be atleast 32 characters long. [Generate keys here.](http://www.unit-conversion.info/texttools/random-string-generator/)
