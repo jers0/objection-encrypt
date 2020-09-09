@@ -1,5 +1,5 @@
 {
-  "name": "objection-encrypt",
+  "name": "better-objection-encrypt",
   "version": "0.1.2",
   "description": "Automatically add encryption to selected fields of your Objection models",
   "main": "index.js",
@@ -16,12 +16,12 @@
     "encrypt",
     "node"
   ],
-  "author": "Dialogtrail",
+  "author": "Jers0",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Dialogtrail/objection-encrypt/issues"
+    "url": "https://github.com/jers0/objection-encrypt/issues"
   },
-  "homepage": "https://github.com/Dialogtrail/objection-encrypt#readme",
+  "homepage": "https://github.com/jers0/objection-encrypt#readme",
   "devDependencies": {
     "knex": "^0.20.2",
     "objection": "^1.0.0"

@@ -1,20 +1,20 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
 const alphaNumericalCheck = /^[a-zA-Z0-9]*$/;
 
-module.exports = options => {
+module.exports = (options) => {
   // Provide good defaults for the options if possible.
   options = Object.assign(
     {
       fields: [],
-      algorithm: 'aes-256-cbc',
-      encryptionKey: '',
-      ivLength: 16
+      algorithm: "aes-256-cbc",
+      encryptionKey: "",
+      ivLength: 16,
     },
     options
   );
 
   // Return the mixin.
-  return Model => {
+  return (Model) => {
     return class extends Model {
       async $beforeInsert(context) {
         await super.$beforeInsert(context);
@@ -80,16 +80,16 @@ module.exports = options => {
 
         encrypted = Buffer.concat([encrypted, cipher.final()]);
 
-        return iv.toString('hex') + ':' + encrypted.toString('hex');
+        return iv.toString("hex") + ":" + encrypted.toString("hex");
       }
 
       decrypt(text) {
         if (!text) return text;
         if (!this.isEncrypted(text)) return text;
 
-        let textParts = text.split(':');
-        let iv = Buffer.from(textParts.shift(), 'hex');
-        let encryptedText = Buffer.from(textParts.join(':'), 'hex');
+        let textParts = text.split(":");
+        let iv = Buffer.from(textParts.shift(), "hex");
+        let encryptedText = Buffer.from(textParts.join(":"), "hex");
         let decipher = crypto.createDecipheriv(
           options.algorithm,
           Buffer.from(options.encryptionKey),
@@ -104,7 +104,8 @@ module.exports = options => {
 
       isEncrypted(text) {
         if (!text) return false;
-        let textParts = text.split(':');
+        if (typeof text !== "string") return false;
+        let textParts = text.split(":");
         return (
           textParts.length == 2 &&
           textParts[0] &&
