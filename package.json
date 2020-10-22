@@ -1,6 +1,6 @@
 {
   "name": "better-objection-encrypt",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Automatically add encryption to selected fields of your Objection models",
   "main": "index.js",
   "scripts": {
