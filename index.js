@@ -67,6 +67,13 @@ module.exports = (options) => {
       }
 
       encrypt(text) {
+        if (
+          typeof text !== "string" &&
+          !(text instanceof Buffer) &&
+          !(text instanceof TypedArray) &&
+          !(text instanceof DataView)
+        )
+          return text;
         if (!text) return text;
         if (this.isEncrypted(text)) return text;
 
